@@ -20,3 +20,6 @@ It's done !
 
 Update WP-Artistic-Galleries for Wordpress and Joomla with querys on your favorite socials networks !
 
+# Actual bugs
+
+- Pagination (and next and previous functions)
