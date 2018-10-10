@@ -90,3 +90,11 @@
 			bottom: 20px;
 			transform: translate(-50%, 0);
 		}
+
+		#modalImageToDisplay {
+			display: block;
+			max-width: 80vw;
+			max-height: 65vh;
+			width: auto;
+			height: auto;
+		}

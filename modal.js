@@ -47,12 +47,13 @@ function openImage(newId){
 function closeModal(){
 	var modal = document.getElementById("modal");
 	modal.style.animationName = "modalOut";
-	modal.style.animationDuration = "1s";
+	modal.style.animationDuration = ".5s";
 	setTimeout(function(){
 		modal.style.display = "none";
-	}, 1000);
+        document.body.style.overflow = "auto";
+	}, 500);
 
-	document.body.style.overflow = "auto";
+
 }
 
 function modalInit(){
