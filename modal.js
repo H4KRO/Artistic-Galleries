@@ -9,6 +9,9 @@ function openModal(imageToLoad){
 	var imageToDisplay = document.getElementById("modalImageToDisplay");
 	imageToDisplay.src = imageToLoad.src;
 	imageToDisplay.setAttribute("imageId", imageToLoad.getAttribute("imageId"));
+
+	var pagination = document.getElementById("pagination");
+	pagination.innerText = (parseInt(imageToLoad.getAttribute("imageId"))+1) + "/" + (document.getElementsByClassName("modalImageToDisplay").length+2);
 }
 
 function nextImage(){
@@ -41,7 +44,8 @@ function openImage(newId){
 			imageToDisplay.setAttribute("imageId", newId);
 		}
 	}
-	
+
+    pagination.innerText = (newId+1) + "/" + (document.getElementsByClassName("modalImageToDisplay").length+2);
 }
 
 function closeModal(){
