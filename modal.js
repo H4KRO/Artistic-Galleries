@@ -4,6 +4,8 @@ function openModal(imageToLoad){
 	modal.style.animationName = "modalIn";
 	modal.style.animationDuration = "1s";
 
+	document.body.style.overflow = "hidden";
+
 	var imageToDisplay = document.getElementById("modalImageToDisplay");
 	imageToDisplay.src = imageToLoad.src;
 	imageToDisplay.setAttribute("imageId", imageToLoad.getAttribute("imageId"));
@@ -49,6 +51,8 @@ function closeModal(){
 	setTimeout(function(){
 		modal.style.display = "none";
 	}, 1000);
+
+	document.body.style.overflow = "auto";
 }
 
 function modalInit(){
