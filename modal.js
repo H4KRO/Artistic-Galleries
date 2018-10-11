@@ -1,3 +1,38 @@
+var speed = 1000;
+var isPlaying = false;
+var modalOpen = false;
+
+
+function increaseSpeed(){
+	speed = speed + 1000;
+}
+
+function decreaseSpeed(){
+	if(speed > 2000){
+		speed = speed - 1000;
+	}
+}
+
+function slideshow(){
+	if(isPlaying){
+		setTimeout(function(){
+			nextImage();
+			slideshow();
+		}, speed);
+	}
+}
+
+function startPlaying(){
+	if(isPlaying == false){
+		isPlaying = true;
+		slideshow();
+	}
+}
+
+function stopPlaying(){
+	isPlaying = false;
+}
+
 function openModal(imageToLoad){
 	var modal = document.getElementById("modal");
 	modal.style.display = "block";
@@ -7,6 +42,9 @@ function openModal(imageToLoad){
 	document.body.style.overflow = "hidden";
 
 	openImage(parseInt(imageToLoad.getAttribute("imageId")));
+
+	modalOpen = true;
+	slideshow();
 }
 
 function getCurrentId(){
@@ -72,6 +110,7 @@ function modalInit(){
 			openModal(this);
 		}
 	}
+
 }
 
 document.onkeydown = function(e) {
