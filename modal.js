@@ -5,14 +5,6 @@ function openModal(imageToLoad){
 	modal.style.animationDuration = "1s";
 
 	document.body.style.overflow = "hidden";
-/*
-	var imageToDisplay = document.getElementById("modalImageToDisplay");
-	imageToDisplay.src = imageToLoad.src;
-	imageToDisplay.setAttribute("imageId", imageToLoad.getAttribute("imageId"));
-
-	var pagination = document.getElementById("pagination");
-	pagination.innerText = (parseInt(imageToLoad.getAttribute("imageId"))+1) + "/" + (document.getElementsByClassName("modalImageToDisplay").length+2);
-	*/
 
 	openImage(parseInt(imageToLoad.getAttribute("imageId")));
 }
@@ -50,8 +42,12 @@ function openImage(newId){
 		if(i == newId){
 			imageToDisplay.src = images[i].src;
 			imageToDisplay.setAttribute("imageId", newId);
+			document.getElementById("modalImageName").innerText = images[i].getAttribute("name");
+			document.getElementById("modalImageDesc").innerText = images[i].getAttribute("desc");
 		}
 	}
+
+
 
     pagination.innerText = (newId+1) + "/" + getNbOfImages();
 }
