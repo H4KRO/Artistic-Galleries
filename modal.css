@@ -82,6 +82,13 @@
 			color: white;
 		}
 
+		#slideshowSpeed {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			color: white;
+		}
+
 		#info {
 			position: absolute;
 			color: white;

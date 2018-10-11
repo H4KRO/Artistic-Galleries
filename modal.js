@@ -2,22 +2,29 @@ var speed = 1000;
 var isPlaying = false;
 var modalOpen = false;
 
+function updateSpeed(){
+	document.getElementById("slideshowSpeed").innerText = speed/1000 + "s";
+}
 
 function increaseSpeed(){
-	speed = speed + 1000;
+	speed = speed + 500;
+	updateSpeed();
 }
 
 function decreaseSpeed(){
-	if(speed > 2000){
-		speed = speed - 1000;
+	if(speed > 1000){
+		speed = speed - 500;
+		updateSpeed();
 	}
 }
 
 function slideshow(){
 	if(isPlaying){
 		setTimeout(function(){
-			nextImage();
-			slideshow();
+			if(isPlaying){
+				nextImage();
+				slideshow();
+			}
 		}, speed);
 	}
 }
@@ -103,6 +110,7 @@ function closeModal(){
 }
 
 function modalInit(){
+	updateSpeed();
 	var images = document.getElementsByClassName("modalImage");
 	for(var i = 0; i < images.length; i++){
 		images[i].setAttribute("imageId", i);
@@ -114,15 +122,29 @@ function modalInit(){
 }
 
 document.onkeydown = function(e) {
+	//alert(e.keyCode);
     switch (e.keyCode) {
     	case 27:
     		closeModal();
+    		break;
+    	case 32:
+    		if(!isPlaying){
+    			startPlaying();
+    		}else{
+    			stopPlaying();
+    		}
     		break;
         case 37:
             previousImage();
             break;
         case 39:
             nextImage();
+            break;
+        case 107:
+            decreaseSpeed();
+            break;
+        case 109:
+            increaseSpeed();
             break;
     }
 };
