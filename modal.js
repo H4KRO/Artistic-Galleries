@@ -5,33 +5,41 @@ function openModal(imageToLoad){
 	modal.style.animationDuration = "1s";
 
 	document.body.style.overflow = "hidden";
-
+/*
 	var imageToDisplay = document.getElementById("modalImageToDisplay");
 	imageToDisplay.src = imageToLoad.src;
 	imageToDisplay.setAttribute("imageId", imageToLoad.getAttribute("imageId"));
 
 	var pagination = document.getElementById("pagination");
 	pagination.innerText = (parseInt(imageToLoad.getAttribute("imageId"))+1) + "/" + (document.getElementsByClassName("modalImageToDisplay").length+2);
+	*/
+
+	openImage(parseInt(imageToLoad.getAttribute("imageId")));
+}
+
+function getCurrentId(){
+	return parseInt(document.getElementById("modalImageToDisplay").getAttribute("imageId"));
+}
+
+function getNbOfImages(){
+	return parseInt(document.getElementsByClassName("modalImage").length);
 }
 
 function nextImage(){
-	var currentId = document.getElementById("modalImageToDisplay").getAttribute("imageId");
-	var nbOfImages = document.getElementsByClassName("modalImage").length;
-	var nextId = 0;
-	if(currentId + 1 < nbOfImages){
-		nextId++;
+	if(getCurrentId() == getNbOfImages()-1){
+		openImage(0);
+	}else{
+		openImage(getCurrentId()+1);	
 	}
-	openImage(nextId);
+
 }
 
 function previousImage(){
-	var currentId = document.getElementById("modalImageToDisplay").getAttribute("imageId");
-	var nbOfImages = document.getElementsByClassName("modalImage").length;
-	var previousId = nbOfImages-1;
-	if(currentId - 1 >= 0){
-		previousId = previousId - 1;
+	if(getCurrentId() == 0){
+		openImage(getNbOfImages() - 1);
+	}else{
+		openImage(getCurrentId() - 1)
 	}
-	openImage(previousId);
 }
 
 function openImage(newId){
@@ -45,7 +53,7 @@ function openImage(newId){
 		}
 	}
 
-    pagination.innerText = (newId+1) + "/" + (document.getElementsByClassName("modalImageToDisplay").length+2);
+    pagination.innerText = (newId+1) + "/" + getNbOfImages();
 }
 
 function closeModal(){
