@@ -78,6 +78,20 @@ function modalInit(){
 	}
 }
 
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+    	case 27:
+    		closeModal();
+    		break;
+        case 37:
+            previousImage();
+            break;
+        case 39:
+            nextImage();
+            break;
+    }
+};
+
 window.onload = function(){
 	modalInit();
 }
