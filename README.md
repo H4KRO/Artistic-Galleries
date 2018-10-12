@@ -12,14 +12,19 @@ It's done !
 
 - [x] src
 - [x] auto id
-- [ ] name
-- [ ] description
-- [ ] thumbnails
+- [X] name
+- [X] description
+- [X] thumbnails
 
 # Goal
 
 Update WP-Artistic-Galleries for Wordpress and Joomla with querys on your favorite socials networks !
 
+# To do
+- Animation
+- Font
+- Icons
+
 # Actual bugs
 
-- Pagination (and next and previous functions)
+None !
