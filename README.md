@@ -14,7 +14,7 @@ It's done !
 - [x] auto id
 - [X] name
 - [X] description
-- [X] thumbnails
+- [ ] thumbnails
 
 # Goal
 
